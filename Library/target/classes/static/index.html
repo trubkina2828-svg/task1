@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Библиотека</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Информационная система «Библиотека»</h1>
+
+    <!-- Поиск и сортировка -->
+    <div class="toolbar">
+
+        <input
+                type="text"
+                id="searchInput"
+                placeholder="Введите название книги"
+        >
+
+        <button onclick="searchBooks()">Найти</button>
+
+        <button onclick="loadBooks()">Все книги</button>
+
+        <button onclick="sortBooks()">
+            Сортировка: дата выдачи + название
+        </button>
+
+    </div>
+
+    <!-- Форма -->
+    <div class="form-container">
+
+        <h2 id="formTitle">Добавить книгу</h2>
+
+        <input type="hidden" id="bookId">
+
+        <label>Название книги:</label>
+        <input type="text" id="title" required>
+
+        <label>Издатель:</label>
+        <input type="text" id="publisher" required>
+
+        <label>Дата выдачи:</label>
+        <input type="date" id="issueDate" required>
+
+        <label>Имя студента:</label>
+        <input type="text" id="studentName" required>
+
+        <label>Дата возврата:</label>
+        <input type="date" id="returnDate">
+
+        <div class="form-buttons">
+            <button onclick="saveBook()">Сохранить</button>
+            <button onclick="clearForm()">Очистить</button>
+        </div>
+
+    </div>
+
+    <!-- Счётчик -->
+    <h2>
+        Всего книг:
+        <span id="bookCount">0</span>
+    </h2>
+
+    <!-- Таблица -->
+    <table>
+
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Издатель</th>
+            <th>Дата выдачи</th>
+            <th>Студент</th>
+            <th>Дата возврата</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+
+        <tbody id="bookTableBody">
+        </tbody>
+
+    </table>
+
+    <!-- Гистограмма -->
+    <h2>Гистограмма выдач за последние 30 дней</h2>
+
+    <div id="chart" class="chart"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
